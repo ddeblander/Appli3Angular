@@ -47,5 +47,5 @@ export class CoursComponent implements OnInit {
   onEdit(c: Cours)
   {
     this.router.navigateByUrl('editCours/'+c.idcours);
-  }//développé plus tard
+  }
 }

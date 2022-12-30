@@ -34,8 +34,9 @@ export class CoursService
   save(c: Cours): Observable<Cours>{
     return this.http.post<Cours>(this.host + '/cours/', c);
   }
-  updateCours(c: Cours): Observable<Cours>{
-    return this.http.put<Cours>(this.host + '/cours/' + c.idcours, c);
+  updateCours(idCours:number,c: Cours): Observable<Cours>{
+    return this.http.put<Cours>(this.host + '/cours/' + idCours, c);
+
   }
 
 }

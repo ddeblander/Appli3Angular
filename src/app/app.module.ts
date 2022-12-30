@@ -12,6 +12,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewClasseComponent } from './components/new-classe/new-classe.component';
 import { NewCoursComponent } from './components/new-cours/new-cours.component';
 import { NewSalleComponent } from './components/new-salle/new-salle.component';
+import { EditCoursComponent } from './components/edit-cours/edit-cours.component';
+import { EditClasseComponent } from './components/edit-classe/edit-classe.component';
+import { EditSalleComponent } from './components/edit-salle/edit-salle.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NewSalleComponent } from './components/new-salle/new-salle.component';
     MainMenuComponent,
     NewClasseComponent,
     NewCoursComponent,
-    NewSalleComponent
+    NewSalleComponent,
+    EditCoursComponent,
+    EditClasseComponent,
+    EditSalleComponent
   ],
   imports: [
     BrowserModule,

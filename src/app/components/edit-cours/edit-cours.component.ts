@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CoursService} from "../../services/cours.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class EditCoursComponent
   submitted = false;
   idCours:number;
   constructor(private coursService: CoursService,private fb:
-    FormBuilder,activatedRoute : ActivatedRoute)
+    FormBuilder,activatedRoute : ActivatedRoute, private routeur: Router)
   {
     this.idCours= activatedRoute.snapshot.params['idCours'];
   }
@@ -35,5 +35,8 @@ export class EditCoursComponent
     this.coursService.updateCours(this.coursFormGroup?.value.idCours,this.coursFormGroup?.value).subscribe();
     // obligé d'envoyer l'ID puis Cours sinon l'ID est undifined
   }
-
+  onReturn():void
+  {
+    this.routeur.navigateByUrl('/cours');
+  }
 }

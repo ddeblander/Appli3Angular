@@ -4,6 +4,7 @@ import {CoursService} from "../../services/cours.service";
 import {ClasseService} from "../../services/classe.service";
 import {Salle} from "../../entities/salle.entities";
 import {SalleService} from "../../services/salle.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-classe',
@@ -16,7 +17,7 @@ export class NewClasseComponent implements OnInit
   submitted = false;
   id:number|null=null;
   salles?: Salle[];
-  constructor(private fb: FormBuilder, private classeService: ClasseService, private salleService: SalleService) {
+  constructor(private fb: FormBuilder, private classeService: ClasseService, private salleService: SalleService, private routeur:Router) {
   }
   ngOnInit() : void {
     this.salleService.getAllSalle().subscribe( data => {this.salles=data});
@@ -26,7 +27,7 @@ export class NewClasseComponent implements OnInit
       annee: ["", Validators.required],
       nbEleves: ["", Validators.required],
       salle: ["", Validators.required],
-
+// attention, n'arrive pas a créer une nouvelle classe à cause de la Liste déroulante.
 
     });
 
@@ -42,6 +43,10 @@ export class NewClasseComponent implements OnInit
       err => {
         alert(err.headers.get("error"));
       });
+  }
+  onReturn():void
+  {
+    this.routeur.navigateByUrl('/classe');
   }
 
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CoursService} from "../../services/cours.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-cours',
@@ -12,7 +13,7 @@ export class NewCoursComponent implements OnInit
 coursFormGroup?: FormGroup;
 submitted = false;
 idCours:number|null=null;
-constructor(private fb: FormBuilder, private coursService: CoursService) {
+constructor(private fb: FormBuilder, private coursService: CoursService, private routeur:Router) {
 }
 ngOnInit() : void {
   this.coursFormGroup = this.fb.group({
@@ -33,5 +34,9 @@ onSaveCours() {
       alert(err.headers.get("error"));
     });
 }
+  onReturn():void
+  {
+    this.routeur.navigateByUrl('/cours');
+  }
 
 }

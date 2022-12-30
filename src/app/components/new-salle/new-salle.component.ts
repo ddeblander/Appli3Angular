@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CoursService} from "../../services/cours.service";
 import {SalleService} from "../../services/salle.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-salle',
@@ -13,7 +14,7 @@ export class NewSalleComponent
   salleFormGroup?: FormGroup;
   submitted = false;
   id:number|null=null;
-  constructor(private fb: FormBuilder, private salleService: SalleService) {
+  constructor(private fb: FormBuilder, private salleService: SalleService, private routeur:Router) {
   }
   ngOnInit() : void {
     this.salleFormGroup = this.fb.group({
@@ -33,6 +34,10 @@ export class NewSalleComponent
       err => {
         alert(err.headers.get("error"));
       });
+  }
+  onReturn():void
+  {
+    this.routeur.navigateByUrl('/cours');
   }
 
 }

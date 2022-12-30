@@ -15,6 +15,7 @@ import { NewSalleComponent } from './components/new-salle/new-salle.component';
 import { EditCoursComponent } from './components/edit-cours/edit-cours.component';
 import { EditClasseComponent } from './components/edit-classe/edit-classe.component';
 import { EditSalleComponent } from './components/edit-salle/edit-salle.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditSalleComponent } from './components/edit-salle/edit-salle.component
     NewSalleComponent,
     EditCoursComponent,
     EditClasseComponent,
-    EditSalleComponent
+    EditSalleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

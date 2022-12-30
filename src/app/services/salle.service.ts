@@ -34,8 +34,8 @@ export class SalleService
   save(c: Salle): Observable<Salle>{
     return this.http.post<Salle>(this.host + '/salle/', c);
   }
-  updateSalle(c: Salle): Observable<Salle>{
-    return this.http.put<Salle>(this.host + '/salle/' + c.id, c);
+  updateSalle(id: number,c: Salle): Observable<Salle>{
+    return this.http.put<Salle>(this.host + '/salle/' + id, c);
   }
 
 }

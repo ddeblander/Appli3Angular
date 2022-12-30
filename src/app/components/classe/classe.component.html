@@ -1,1 +1,58 @@
-<p>classe works!</p>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar navbar-nav">
+    <li>
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)" class="form-inline">
+        <input ngModel name="intitule" type="text">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+<span class="fa fa-search">
+</span>
+        </button>
+      </form>
+
+      <button (click)="onNewClasse()" class="btn btn-sm btn-outline-info
+ms-2">New
+      </button>
+    </li>
+  </ul>
+</nav>
+<ng-container *ngIf="classes">
+  <ng-container *ngIf="classes.length>0 else inconnu">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Sigle</th>
+      <th>Annee</th>
+      <th>Spécialité</th>
+      <th>NBélèves</th>
+      <th>ID_Salle</th>
+      <th>NuméroSalle</th>
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of classes">
+        <td>{{c.id}}</td>
+        <td>{{c.sigle}}</td>
+        <td>{{c.annee}}</td>
+        <td>{{c.specialite}}</td>
+        <td>{{c.nbEleves}}</td>
+        <td>{{c.salle.id}}</td>
+        <td>{{c.salle.sigle}}</td>
+
+        <td>
+          <button (click)=onDelete(c) class="btn btn-danger">
+            <span class = "fa fa-trash-o"></span>
+          </button>
+        </td>
+        <td>
+          <button (click)=onEdit(c) class="btn btn-danger">
+            <span class = "fa fa-edit"></span>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #inconnu>
+    Intitulé inconnu
+  </ng-template>
+</ng-container>

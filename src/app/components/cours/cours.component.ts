@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {CoursService} from '../../services/cours.service';
-import {Observable} from 'rxjs';
 import {Cours} from "../../entities/cours.entities";
 
 @Component({

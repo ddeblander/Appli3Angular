@@ -9,6 +9,9 @@ import { SalleComponent } from './components/salle/salle.component';
 import {MainMenuComponent} from "./components/main-menu/main-menu.component";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NewClasseComponent } from './components/new-classe/new-classe.component';
+import { NewCoursComponent } from './components/new-cours/new-cours.component';
+import { NewSalleComponent } from './components/new-salle/new-salle.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ClasseComponent,
     CoursComponent,
     SalleComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    NewClasseComponent,
+    NewCoursComponent,
+    NewSalleComponent
   ],
   imports: [
     BrowserModule,

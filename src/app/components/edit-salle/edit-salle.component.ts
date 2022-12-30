@@ -41,6 +41,6 @@ export class EditSalleComponent
   }
   onReturn():void
   {
-    this.routeur.navigateByUrl('/cours');
+    this.routeur.navigateByUrl('/salle');
   }
 }

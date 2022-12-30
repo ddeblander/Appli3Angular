@@ -11,6 +11,7 @@ import {NewCoursComponent} from "./components/new-cours/new-cours.component";
 import {EditClasseComponent} from "./components/edit-classe/edit-classe.component";
 import {EditCoursComponent} from "./components/edit-cours/edit-cours.component";
 import {EditSalleComponent} from "./components/edit-salle/edit-salle.component";
+import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
   {path:'classe', component: ClasseComponent},
@@ -24,6 +25,8 @@ const routes: Routes = [
   {path:'salle', component: SalleComponent},
   {path:'newSalle', component: NewSalleComponent},
   {path:'editSalle/:id', component: EditSalleComponent},
+
+  {path:'', component: HomeComponent},
 ];
 
 @NgModule({

@@ -32,7 +32,10 @@ export class EditCoursComponent
   onUpdateCours(): void {
     this.submitted = true;
     if (this.coursFormGroup?.invalid) { return; }
-    this.coursService.updateCours(this.coursFormGroup?.value.idCours,this.coursFormGroup?.value).subscribe();
+    this.coursService.updateCours(this.coursFormGroup?.value.idCours,this.coursFormGroup?.value).subscribe(data => {alert('maj ok')},
+      err => {
+        alert(err.headers.get("error"));
+      });
     // obligé d'envoyer l'ID puis Cours sinon l'ID est undifined
   }
   onReturn():void

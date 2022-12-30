@@ -37,7 +37,7 @@ export class CoursComponent implements OnInit {
       this.coursService.deleteCours(c).subscribe(
         {
           next: data => {
-            this.onSearch(null);
+            this.onSearch(c);
           },
           error: err => { alert(err.headers.get("error")); }
         }

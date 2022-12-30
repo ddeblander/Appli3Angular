@@ -17,10 +17,16 @@ export class CoursComponent implements OnInit {
   ngOnInit(): void { }
 
   onSearch(value: any) {
-    this.coursService.searchCours(value.intitule).subscribe(
-      data => {
-        this.cours = data
-      });
+    if(value.intitule=="")
+    {
+      this.coursService.getAllCours().subscribe( data => {this.cours=data});
+    }
+    else {
+      this.coursService.searchCours(value.intitule).subscribe(
+        data => {
+          this.cours = data
+        });
+    }
   }
   onNewClient()
   {

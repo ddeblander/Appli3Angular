@@ -15,11 +15,16 @@ export class CoursService
   {
     return this.http.get<Cours>(this.host + '/cours/' +idcours);
   }
+  getAllCours(): Observable<Cours[]>
+  {
+    return this.http.get<Cours[]>(this.host + '/cours/all');
+  }
   searchCoursUnique(code: string,intitule:string):
     Observable<Cours[]>{
     return this.http.get<Cours[]>(this.host +
       '/cours/'+code+'/'+intitule+'/');
   }
+
   searchCours(intitule: string): Observable<Cours[]>{
     return this.http.get<Cours[]>(this.host + '/cours/intitule=' + intitule);
   }

@@ -12,7 +12,7 @@ export class NewCoursComponent implements OnInit
 coursFormGroup?: FormGroup;
 submitted = false;
 idCours:number|null=null;
-constructor(private fb: FormBuilder, private clientService: CoursService) {
+constructor(private fb: FormBuilder, private coursService: CoursService) {
 }
 ngOnInit() : void {
   this.coursFormGroup = this.fb.group({
@@ -27,7 +27,7 @@ onSaveCours() {
     alert("invalide")
     return; }
 
-  this.clientService.save(this.coursFormGroup?.value).subscribe(data =>
+  this.coursService.save(this.coursFormGroup?.value).subscribe(data =>
     {alert('sauvegarde ok');this.idCours=data.idcours},
     err => {
       alert(err.headers.get("error"));

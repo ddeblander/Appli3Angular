@@ -1,1 +1,61 @@
-<p>new-classe works!</p>
+<div class="container">
+
+  <form [formGroup]="classeFormGroup" *ngIf="classeFormGroup">
+
+    <div class = "form-group">
+      <label>id</label>
+      <input type ="text" class="form-control" value="{{id}}" readonly="readonly">
+    </div>
+
+    <div class = "form-group">
+      <label>Sigle</label>
+      <input type ="text" class="form-control" formControlName="sigle"
+             [ngClass]="{'is-invalid': submitted &&  classeFormGroup.controls['sigle'].errors}">
+      <div *ngIf="classeFormGroup.controls['sigle'].errors" class ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls['sigle'].errors['required']">
+          Sigle obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class = "form-group">
+      <label>Specialite</label>
+      <input type ="text" class="form-control" formControlName="specialite"
+             [ngClass]="{'is-invalid': submitted &&  classeFormGroup.controls['specialite'].errors}">
+      <div *ngIf="classeFormGroup.controls['specialite'].errors" class ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls['specialite'].errors['required']">
+          Specialite obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class = "form-group">
+      <label>Annee</label>
+      <input type ="number" class="form-control" formControlName="annee"
+             [ngClass]="{'is-invalid': submitted &&  classeFormGroup.controls['annee'].errors}">
+      <div *ngIf="classeFormGroup.controls['annee'].errors" class ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls['annee'].errors['required']">
+          Annee obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class = "form-group">
+      <label>NbEleves</label>
+      <input type ="number" class="form-control" formControlName="annee"
+             [ngClass]="{'is-invalid': submitted &&  classeFormGroup.controls['nbEleves'].errors}">
+      <div *ngIf="classeFormGroup.controls['nbEleves'].errors" class ="invalid-feedback">
+        <div *ngIf="classeFormGroup.controls['nbEleves'].errors['required']">
+          NbEleves obligatoire
+        </div>
+      </div>
+    </div>
+
+
+    <button (click)="onSaveClasse()" class="btn btn-success" >
+      Save
+    </button>
+  </form>
+
+</div>
+

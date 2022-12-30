@@ -16,7 +16,7 @@ export class CoursComponent implements OnInit {
   ngOnInit(): void { }
 
   onSearch(value: any) {
-    if(value.intitule=="")
+    if(value.intitule==""|| value==null)
     {
       this.coursService.getAllCours().subscribe( data => {this.cours=data});
     }
@@ -37,7 +37,7 @@ export class CoursComponent implements OnInit {
       this.coursService.deleteCours(c).subscribe(
         {
           next: data => {
-            this.onSearch(c);
+            this.onSearch(null);
           },
           error: err => { alert(err.headers.get("error")); }
         }

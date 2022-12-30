@@ -1,1 +1,39 @@
-<p>new-cours works!</p>
+<div class="container">
+
+  <form [formGroup]="coursFormGroup" *ngIf="coursFormGroup">
+
+    <div class = "form-group">
+      <label>idCours</label>
+      <input type ="text" class="form-control" value="{{idCours}}" readonly="readonly">
+    </div>
+
+    <div class = "form-group">
+      <label>Code</label>
+      <input type ="text" class="form-control" formControlName="code"
+             [ngClass]="{'is-invalid': submitted &&  coursFormGroup.controls['code'].errors}">
+      <div *ngIf="coursFormGroup.controls['code'].errors" class ="invalid-feedback">
+        <div *ngIf="coursFormGroup.controls['code'].errors['required']">
+          Code obligatoire
+        </div>
+      </div>
+    </div>
+
+    <div class = "form-group">
+      <label>Intitulé</label>
+      <input type ="text" class="form-control" formControlName="intitule"
+             [ngClass]="{'is-invalid': submitted &&  coursFormGroup.controls['intitule'].errors}">
+      <div *ngIf="coursFormGroup.controls['intitule'].errors" class ="invalid-feedback">
+        <div *ngIf="coursFormGroup.controls['intitule'].errors['required']">
+          Intitulé obligatoire
+        </div>
+      </div>
+    </div>
+
+
+    <button (click)="onSaveCours()" class="btn btn-success" >
+      Save
+    </button>
+  </form>
+
+</div>
+

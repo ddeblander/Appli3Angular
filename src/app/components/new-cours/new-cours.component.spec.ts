@@ -11,11 +11,13 @@ describe('NewCoursComponent', () => {
       declarations: [ NewCoursComponent ]
     })
     .compileComponents();
-
+  });
+  beforeEach(() => {
     fixture = TestBed.createComponent(NewCoursComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
 
   it('should create', () => {
     expect(component).toBeTruthy();

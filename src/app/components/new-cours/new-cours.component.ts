@@ -1,10 +1,37 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CoursService} from "../../services/cours.service";
 
 @Component({
   selector: 'app-new-cours',
   templateUrl: './new-cours.component.html',
   styleUrls: ['./new-cours.component.css']
 })
-export class NewCoursComponent {
+export class NewCoursComponent implements OnInit
+{
+coursFormGroup?: FormGroup;
+submitted = false;
+idCours:number|null=null;
+constructor(private fb: FormBuilder, private clientService: CoursService) {
+}
+ngOnInit() : void {
+  this.coursFormGroup = this.fb.group({
+    code: ["", Validators.required],
+    intitule: ["", Validators.required],
+
+  });
+}
+onSaveCours() {
+  this.submitted = true;
+  if (this.coursFormGroup?.invalid) {
+    alert("invalide")
+    return; }
+
+  this.clientService.save(this.coursFormGroup?.value).subscribe(data =>
+    {alert('sauvegarde ok');this.idCours=data.idcours},
+    err => {
+      alert(err.headers.get("error"));
+    });
+}
 
 }

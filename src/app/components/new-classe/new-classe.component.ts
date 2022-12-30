@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CoursService} from "../../services/cours.service";
 import {ClasseService} from "../../services/classe.service";
+import {Salle} from "../../entities/salle.entities";
+import {SalleService} from "../../services/salle.service";
 
 @Component({
   selector: 'app-new-classe',
@@ -13,9 +15,11 @@ export class NewClasseComponent implements OnInit
   classeFormGroup?: FormGroup;
   submitted = false;
   id:number|null=null;
-  constructor(private fb: FormBuilder, private classeService: ClasseService) {
+  salles?: Salle[];
+  constructor(private fb: FormBuilder, private classeService: ClasseService, private salleService: SalleService) {
   }
   ngOnInit() : void {
+    this.salleService.getAllSalle().subscribe( data => {this.salles=data});
     this.classeFormGroup = this.fb.group({
       sigle: ["", Validators.required],
       specialite: ["", Validators.required],
@@ -23,7 +27,9 @@ export class NewClasseComponent implements OnInit
       nbEleves: ["", Validators.required],
       salle: ["", Validators.required],
 
+
     });
+
   }
   onSaveClasse() {
     this.submitted = true;

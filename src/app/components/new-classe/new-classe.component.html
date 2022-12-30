@@ -42,7 +42,7 @@
 
     <div class = "form-group">
       <label>NbEleves</label>
-      <input type ="number" class="form-control" formControlName="annee"
+      <input type ="number" class="form-control" formControlName="nbEleves"
              [ngClass]="{'is-invalid': submitted &&  classeFormGroup.controls['nbEleves'].errors}">
       <div *ngIf="classeFormGroup.controls['nbEleves'].errors" class ="invalid-feedback">
         <div *ngIf="classeFormGroup.controls['nbEleves'].errors['required']">
@@ -51,6 +51,20 @@
       </div>
     </div>
 
+    <div class = "form-group">
+      <label>Salle:</label>
+      <select >
+        <option>Salle</option>
+        <option *ngFor="let salle of salles" [ngValue]="salle">
+          sigle: {{salle.sigle}} -
+          ID: {{salle.id}} -
+          <br>
+        </option>
+
+      </select>
+
+
+    </div>
 
     <button (click)="onSaveClasse()" class="btn btn-success" >
       Save

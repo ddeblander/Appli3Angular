@@ -16,6 +16,7 @@ import { EditCoursComponent } from './components/edit-cours/edit-cours.component
 import { EditClasseComponent } from './components/edit-classe/edit-classe.component';
 import { EditSalleComponent } from './components/edit-salle/edit-salle.component';
 import { HomeComponent } from './components/home/home.component';
+import { ExamenComponent } from './components/examen/examen.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './components/home/home.component';
     EditCoursComponent,
     EditClasseComponent,
     EditSalleComponent,
-    HomeComponent
+    HomeComponent,
+    ExamenComponent
   ],
   imports: [
     BrowserModule,

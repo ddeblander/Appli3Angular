@@ -13,6 +13,8 @@ import {EditCoursComponent} from "./components/edit-cours/edit-cours.component";
 import {EditSalleComponent} from "./components/edit-salle/edit-salle.component";
 import {HomeComponent} from "./components/home/home.component";
 
+import {ExamenComponent} from "./components/examen/examen.component";
+
 const routes: Routes = [
   {path:'classe', component: ClasseComponent},
   {path:'newClasse', component:NewClasseComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path:'editSalle/:id', component: EditSalleComponent},
 
   {path:'', component: HomeComponent},
+
+  {path:'examen', component: ExamenComponent},
 ];
 
 @NgModule({

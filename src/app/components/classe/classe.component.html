@@ -4,14 +4,20 @@
       <form #f="ngForm" (ngSubmit)="onSearch(f.value)" class="form-inline">
         <input ngModel name="intitule" type="text">
         <button class="btn btn-sm btn-outline-info m-lg-2">
-<span class="fa fa-search">
-</span>
+          <span class="fa fa-search">
+          </span>
         </button>
       </form>
 
-      <button (click)="onNewClasse()" class="btn btn-sm btn-outline-info
-ms-2">New
-      </button>
+      <form #f2="ngForm" (ngSubmit)="onSearchByCapacite(f2.value)" class="form-inline">
+        <input ngModel name="capacite" type="number">
+        <button class="btn btn-sm btn-outline-info m-lg-2">
+          <span class="fa fa-search">
+          </span>
+        </button>
+      </form>
+
+
     </li>
   </ul>
 </nav>

@@ -28,6 +28,10 @@ export class ClasseService
   searchClasse(sigle: string): Observable<Classe[]>{
     return this.http.get<Classe[]>(this.host + '/classe/sigle=' + sigle);
   }
+  searchClasseBySpecialite(specialite: string): Observable<Classe[]>{
+    return this.http.get<Classe[]>(this.host + '/classe/specialite=' + specialite);
+  }
+
   deleteClasse(c: Classe): Observable<void>{
     return this.http.delete<void>(this.host + '/classe/' + c.id);
   }
